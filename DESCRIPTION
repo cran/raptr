@@ -1,11 +1,11 @@
 Package: raptr
 Type: Package
 Title: Representative and Adequate Prioritization Toolkit in R
-Version: 0.0.1
+Version: 0.0.3
 Authors@R: c(person(c("Jeffrey", "O"), "Hanson", email='jeffrey.hanson@uqconnect.edu.au', role = c("aut", "cre")),
-	person(c("Jonathon", "R"), "Rhodes", role = c("aut")),
-	person(c("Hugh", "P"), "Possingham", role = c("aut")),
-	person(c("Richard", "A"), "Fuller", role = c("aut")))
+    person(c("Jonathan", "R"), "Rhodes", role = c("aut")),
+    person(c("Hugh", "P"), "Possingham", role = c("aut")),
+    person(c("Richard", "A"), "Fuller", role = c("aut")))
 Description: Biodiversity is in crisis. The overarching aim of conservation 
     is to preserve biodiversity patterns and processes. To this end, protected 
     areas are established to buffer species and preserve biodiversity processes. 
@@ -40,11 +40,11 @@ Collate: 'dependencies.R' 'RcppExports.R' 'raptr-internal.R'
         'sim.species.R' 'urap.proportion.held.R' 'zzz.R'
 RoxygenNote: 5.0.1
 NeedsCompilation: yes
-Packaged: 2016-10-27 23:48:45 UTC; uqjhans4
-Author: Jeffrey O Hanson [aut, cre],
-    Jonathon R Rhodes [aut],
-    Hugh P Possingham [aut],
-    Richard A Fuller [aut]
+Packaged: 2016-11-24 21:50:54 UTC; uqjhans4
 Maintainer: Jeffrey O Hanson <jeffrey.hanson@uqconnect.edu.au>
+Author: Jeffrey O Hanson [aut, cre],
+  Jonathan R Rhodes [aut],
+  Hugh P Possingham [aut],
+  Richard A Fuller [aut]
 Repository: CRAN
-Date/Publication: 2016-10-28 10:51:18
+Date/Publication: 2016-11-25 13:00:00
