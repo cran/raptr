@@ -7,19 +7,19 @@
 RapUnsolved(opts, data)
 }
 \arguments{
-\item{opts}{\code{RapReliableOpts} or \code{RapUnreliableOpts} object.}
+\item{opts}{\code{\link{RapReliableOpts}} or \code{\link{RapUnreliableOpts}} object.}
 
-\item{data}{\code{RapData} object.}
+\item{data}{\code{\link{RapData}} object.}
 }
 \value{
-\code{RapUnsolved} object.
+\code{\link{RapUnsolved}} object.
 }
 \description{
-This function creates a \code{RapUnsolved} object using a \code{GurobiOpts}, a \code{RapReliableOpts} or \code{RapUnreliableOpts} object, and a \code{RapData} object.
+This function creates a \code{\link{RapUnsolved}} object using a \code{\link{GurobiOpts}}, a \code{\link{RapReliableOpts}} or \code{\link{RapUnreliableOpts}} object, and a \code{\link{RapData}} object.
 }
 \examples{
 # load data
-\dontrun{
+\donttest{
 data(cs_pus, cs_spp)
 # create inputs for RapUnsolved
 ro <- RapUnreliableOpts()
@@ -32,4 +32,3 @@ print(ru)
 \seealso{
 \code{\link{RapReliableOpts-class}}, \code{\link{RapUnreliableOpts-class}}, \code{\link{RapData-class}}.
 }
-

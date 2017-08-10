@@ -8,23 +8,23 @@ RapData(pu, species, targets, pu.species.probabilities, attribute.spaces,
   boundary, polygons = NA, skipchecks = FALSE, .cache = new.env())
 }
 \arguments{
-\item{pu}{\code{data.frame} planning unit data. Columns are 'cost' (\code{numeric}), 'area' (\code{numeric}), and 'status' (\code{integer}).}
+\item{pu}{\code{\link[base]{data.frame}} planning unit data. Columns are 'cost' (\code{numeric}), 'area' (\code{numeric}), and 'status' (\code{integer}).}
 
-\item{species}{\code{data.frame} with species data. Columns are 'name' (\code{character}).}
+\item{species}{\code{\link[base]{data.frame}} with species data. Columns are 'name' (\code{character}).}
 
-\item{targets}{\code{data.frame} with species data. Columns are 'species' (\code{integer}), 'target' (\code{integer}), 'proportion' (\code{numeric}).}
+\item{targets}{\code{\link[base]{data.frame}} with species data. Columns are 'species' (\code{integer}), 'target' (\code{integer}), 'proportion' (\code{numeric}).}
 
-\item{pu.species.probabilities}{\code{data.frame} with data on the probability of species in each planning unit. Columns are 'species' (\code{integer}), 'pu' (\code{integer}), and 'value' (\code{numeric}) columns.}
+\item{pu.species.probabilities}{\code{\link[base]{data.frame}} with data on the probability of species in each planning unit. Columns are 'species' (\code{integer}), 'pu' (\code{integer}), and 'value' (\code{numeric}) columns.}
 
 \item{attribute.spaces}{\code{list} of \code{AttributeSpaces} objects with the demand points and planning unit coordinates.}
 
-\item{boundary}{\code{data.frame} with data on the shared boundary length of planning units. Columns are with 'id1' (\code{integer}), 'id2' (\code{integer}), and 'boundary' (\code{integer}).}
+\item{boundary}{\code{\link[base]{data.frame}} with data on the shared boundary length of planning units. Columns are with 'id1' (\code{integer}), 'id2' (\code{integer}), and 'boundary' (\code{integer}).}
 
-\item{polygons}{\code{PolySet} planning unit spatial data or \code{NULL} if data not available.}
+\item{polygons}{\code{\link[PBSmapping]{PolySet}} planning unit spatial data or \code{NULL} if data not available.}
 
 \item{skipchecks}{\code{logical} Skip data integrity checks? May improve speed for big data sets.}
 
-\item{.cache}{\code{environment} used to cache calculations.}
+\item{.cache}{\code{\link[base]{environment}} used to cache calculations.}
 }
 \value{
 RapData object
@@ -36,57 +36,55 @@ This function creates a "RapData" object using pre-processed data.
 Generally, users are not encouraged to change arguments to \code{.cache}.
 }
 \examples{
-\dontrun{
+\donttest{
 # load data
 data(cs_pus, cs_spp, cs_space)
 # create data for RapData object
 attribute.spaces <- list(
 	AttributeSpaces(
-	list(
-			AttributeSpace(
-			planning.unit.points=PlanningUnitPoints(
-				rgeos::gCentroid(cs_pus[1:10,], byid=TRUE)@coords,
-				seq_len(10)
-			)
-				demand.points=make.DemandPoints(
-				SpatialPoints(
-					coords=randomPoints(
-						cs_spp,
-						n=10,
-						prob=TRUE
-					)
-				),
-			),
-			species=1L
-		),
+		name="geographic",
+		list(
 			AttributeSpace(
 				planning.unit.points=PlanningUnitPoints(
-				extract(cs_space[[1]],cs_pus[1:10,],fun=mean),
-				seq_len(10)
-			),
+					rgeos::gCentroid(cs_pus[1:10,], byid=TRUE)@coords,
+					seq_len(10)
+				),
 				demand.points=make.DemandPoints(
-				SpatialPoints(
-					coords=randomPoints(
-						cs_spp,
+					randomPoints(
+						cs_spp[[1]],
 						n=10,
 						prob=TRUE
 					)
 				),
-				cs_space[[1]]
-			),
-			species=1L
+				species=1L
+			)
 		)
+	),
+	AttributeSpaces(
+		name="environmental",
+		list(
+			# create environmental attribute space
+			AttributeSpace(
+				planning.unit.points=PlanningUnitPoints(
+					extract(cs_space[[1]], cs_pus[1:10,], fun=mean),
+					seq_len(10)
+				),
+				demand.points=make.DemandPoints(
+					cs_space[[1]][Which(!is.na(cs_space[[1]]))]
+				),
+				species=1L
+			)
 		)
 	)
 )
-pu.species.probabilities <- calcSpeciesAverageInPus(cs_pus[1:10,], cs_spp)
+pu.species.probabilities <- calcSpeciesAverageInPus(cs_pus[1:10,], cs_spp[[1]])
 polygons <- SpatialPolygons2PolySet(cs_pus[1:10,])
 boundary <- calcBoundaryData(cs_pus[1:10,])
 
 x<-RapData(
 	pu=cs_pus@data[1:10,],
 	species=data.frame(name='test'),
- target=data.frame(species=1, target=0:2, proportion=0.2),
+	target=data.frame(species=1L, target=0:2, proportion=0.2),
 	pu.species.probabilities=pu.species.probabilities,
 	attribute.spaces=attribute.spaces,
 	polygons=polygons,
@@ -98,4 +96,3 @@ print(x)
 \seealso{
 \code{\link[PBSmapping]{PolySet}}, \code{\link[sp]{SpatialPoints}}, \code{\link[sp]{SpatialPointsDataFrame}}, \code{\link{make.RapData}}, \code{\link{RapData-class}}.
 }
-

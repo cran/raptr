@@ -10,7 +10,7 @@ NULL
 #' @param xmx \code{numeric} value for maximum x-coordinate.
 #' @param ymn \code{numeric} value for minimum y-coordinate.
 #' @param ymx \code{numeric} value for maximum y-coordinate.
-#' @return \code{SpatialPolygons} with planning units.
+#' @return \code{\link[sp]{SpatialPolygons}} with planning units.
 #' @details Square planning units are generated in the shape of a square. Default coordinate arguments are such that the planning units will be centered at origin.
 #' The data slot contains an 'id' (\code{integer}), cost (\code{numeric}), 'status' (\code{integer}), and area (\code{numeric}).
 #' @export sim.pus
@@ -19,7 +19,7 @@ NULL
 #' x <- sim.pus(225)
 #' # generate 225 rectangular pus arranged in a square
 #' y <- sim.pus(225, xmn=-5, xmx=10, ymn=-5, ymx=5)
-#' \dontrun{
+#' \donttest{
 #' par(mfrow=c(1,2))
 #' plot(x, main='x')
 #' plot(y, main='y')

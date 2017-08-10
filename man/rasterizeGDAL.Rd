@@ -7,11 +7,11 @@
 rasterizeGDAL(x, y, field = NULL)
 }
 \arguments{
-\item{x}{\code{SpatialPolygonsDataFrame} object.}
+\item{x}{\code{\link[sp]{SpatialPolygonsDataFrame}} object.}
 
-\item{y}{\code{RasterLayer} with dimensions, extent, and resolution to be used as a template for new raster.}
+\item{y}{\code{\link[raster]{raster}} with dimensions, extent, and resolution to be used as a template for new raster.}
 
-\item{field}{\code{character} column name with values to burn into the output raster. If not supplied, default behaviour is to burn polygon indices into the \code{    RasterLayer}.}
+\item{field}{\code{character} column name with values to burn into the output raster. If not supplied, default behaviour is to burn polygon indices into the \code{\link[raster]{raster}}.}
 }
 \value{
 \code{RasterLayer} object.
@@ -22,12 +22,11 @@ It is expected to be faster than \code{\link[raster]{rasterize}} for large datas
 However, it will be significantly slower for small datasets because the data will need to be written and read from disk.
 }
 \examples{
-\dontrun{
-data(sim_pu,sim_spp)
-x <- rasterizeGDAL(sim_pu[1:5,],sim_spp[[1]])
+\donttest{
+data(cs_pus,cs_spp)
+x <- rasterizeGDAL(cs_pus[1:5,], cs_spp[[1]])
 }
 }
 \seealso{
 \code{\link[raster]{rasterize}}, \code{\link{is.gdalInstalled}}.
 }
-

@@ -1,7 +1,7 @@
 Package: raptr
 Type: Package
 Title: Representative and Adequate Prioritization Toolkit in R
-Version: 0.0.3
+Version: 0.0.5
 Authors@R: c(person(c("Jeffrey", "O"), "Hanson", email='jeffrey.hanson@uqconnect.edu.au', role = c("aut", "cre")),
     person(c("Jonathan", "R"), "Rhodes", role = c("aut")),
     person(c("Hugh", "P"), "Possingham", role = c("aut")),
@@ -18,8 +18,8 @@ Description: Biodiversity is in crisis. The overarching aim of conservation
     functionality (obtained from <http://github.com/jeffreyhanson/rgurobi>).
 Imports: utils, boot, grDevices, PBSmapping, graphics, stats, scales,
         shape, Matrix, adehabitatHR, RgoogleMaps, RandomFields,
-        RColorBrewer, plyr, parallel, doParallel, rgeos, hypervolume,
-        ks, gdalUtils, mvtnorm, ggplot2, testthat
+        RColorBrewer, plyr, parallel, doParallel, rgeos, hypervolume(>=
+        2.0.7), ks, gdalUtils, mvtnorm, ggplot2, testthat
 Depends: R(>= 3.1.0), methods, sp, rgdal, raster
 LinkingTo: Rcpp, RcppEigen, BH
 LazyData: true
@@ -38,13 +38,13 @@ Collate: 'dependencies.R' 'RcppExports.R' 'raptr-internal.R'
         'SpatialPolygons2PolySet.R' 'data.R' 'rap.R' 'raptr.R'
         'rrap.proportion.held.R' 'sim.pus.R' 'sim.space.R'
         'sim.species.R' 'urap.proportion.held.R' 'zzz.R'
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
 NeedsCompilation: yes
-Packaged: 2016-11-24 21:50:54 UTC; uqjhans4
 Maintainer: Jeffrey O Hanson <jeffrey.hanson@uqconnect.edu.au>
+Packaged: 2017-08-10 02:03:16 UTC; jeff
 Author: Jeffrey O Hanson [aut, cre],
   Jonathan R Rhodes [aut],
   Hugh P Possingham [aut],
   Richard A Fuller [aut]
 Repository: CRAN
-Date/Publication: 2016-11-25 13:00:00
+Date/Publication: 2017-08-10 09:02:37 UTC

@@ -16,7 +16,7 @@ is.GurobiInstalled(verbose = TRUE)
 This function determines if the Gurobi R package is installed on the computer and that it can be used \code{\link[base]{options}}.
 }
 \examples{
-\dontrun{
+\donttest{
 # check if Gurobi is installed
 is.GurobiInstalled()
 # print cached status of installation
@@ -26,4 +26,3 @@ options()$GurobiInstalled
 \seealso{
 \code{\link[base]{options}}.
 }
-
