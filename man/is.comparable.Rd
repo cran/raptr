@@ -3,14 +3,16 @@
 \docType{methods}
 \name{is.comparable}
 \alias{is.comparable}
+\alias{is.comparable}
 \alias{is.comparable,RapData,RapData-method}
+\alias{is.comparable}
 \alias{is.comparable,RapUnsolOrSol,RapUnsolOrSol-method}
+\alias{is.comparable}
 \alias{is.comparable,RapData,RapUnsolOrSol-method}
+\alias{is.comparable}
 \alias{is.comparable,RapUnsolOrSol,RapData-method}
 \title{Compare Rap objects}
 \usage{
-is.comparable(x, y)
-
 \S4method{is.comparable}{RapData,RapData}(x, y)
 
 \S4method{is.comparable}{RapUnsolOrSol,RapUnsolOrSol}(x, y)
@@ -31,6 +33,7 @@ is.comparable(x, y)
 This function checks objects to see if they share the same input data.
 }
 \seealso{
-\code{\link{RapData-class}}, \code{\link{RapUnsolved-class}}, \code{\link{RapSolved-class}}.
+\code{\link{RapData-class}}, \code{\link{RapUnsolved-class}},
+\code{\link{RapSolved-class}}.
 }
 \keyword{internal}
