@@ -1,7 +1,7 @@
 Package: raptr
 Type: Package
 Title: Representative and Adequate Prioritization Toolkit in R
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: c(person(c("Jeffrey", "O"), "Hanson",
     email="jeffrey.hanson@uqconnect.edu.au", role = c("aut", "cre")),
     person(c("Jonathan", "R"), "Rhodes", role = c("aut")),
@@ -15,9 +15,7 @@ Description: Biodiversity is in crisis. The overarching aim of conservation
     (prioritizations), using spatially explicit targets for biodiversity
     patterns and processes. To obtain solutions in a feasible amount  of time,
     this package uses the commercial 'Gurobi' software package (obtained from
-    <http://www.gurobi.com/>). Additionally, the 'rgurobi' package can also be
-    installed to provide extra functionality (obtained from
-    <http://github.com/jeffreyhanson/rgurobi>). For more information on using
+    <http://www.gurobi.com/>). For more information on using
     this package, see Hanson et al. (2017) <doi:10.1111/2041-210X.12862>.
 Imports: utils, methods, assertthat, Matrix, boot, grDevices,
         PBSmapping, graphics, stats, scales, shape, adehabitatHR,
@@ -28,11 +26,12 @@ Depends: R(>= 3.1.0), sp, raster
 LinkingTo: Rcpp, RcppEigen, BH
 LazyData: true
 License: GPL-3
-URL: https://github.com/jeffreyhanson/raptr
+URL: https://jeffrey-hanson.com/raptr,
+        https://github.com/jeffreyhanson/raptr
 BugReports: https://github.com/jeffreyhanson/raptr/issues
 VignetteBuilder: knitr
-Suggests: knitr, roxygen2, dplyr, vegan, gurobi, rgurobi, gridExtra,
-        rgl, testthat
+Suggests: knitr, roxygen2, dplyr, vegan, gurobi, gridExtra, rgl,
+        testthat
 SystemRequirements: C++11
 Collate: 'dependencies.R' 'RcppExports.R' 'raptr-internal.R'
         'generics.R' 'DemandPoints.R' 'misc.R' 'PlanningUnitPoints.R'
@@ -46,10 +45,10 @@ Collate: 'dependencies.R' 'RcppExports.R' 'raptr-internal.R'
 RoxygenNote: 6.0.1
 NeedsCompilation: yes
 Maintainer: Jeffrey O Hanson <jeffrey.hanson@uqconnect.edu.au>
-Packaged: 2017-11-20 07:28:52 UTC; jeff
+Packaged: 2018-06-28 07:10:30 UTC; jeff
 Author: Jeffrey O Hanson [aut, cre],
   Jonathan R Rhodes [aut],
   Hugh P Possingham [aut],
   Richard A Fuller [aut]
 Repository: CRAN
-Date/Publication: 2017-11-20 11:41:08 UTC
+Date/Publication: 2018-06-28 10:31:21 UTC
