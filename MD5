@@ -1,6 +1,6 @@
-d5ce9ac2c52d247feef7984ad082fb88 *DESCRIPTION
+31c8f2e5c4321ed6046f577db1d1dbb9 *DESCRIPTION
 ce5c59cde104af5eb3ae6c1e907bc6f9 *NAMESPACE
-18b1facc6970883f093cd68b780ff0ab *NEWS.md
+862c549b223ff4926a96f5534df3695c *NEWS.md
 cd59249b384a0be744e08aff0f8f2fd8 *R/AttributeSpace.R
 298fb97dbcb627038f3b202591225215 *R/AttributeSpaces.R
 0cb38e13be9eaf36a150649254f31cc3 *R/DemandPoints.R
@@ -30,8 +30,8 @@ c15f060371810190233526c3168b12f5 *R/rrap.proportion.held.R
 0a417cd8a85cb303c950921849d16070 *R/sim.species.R
 cd18c80b61562669eafcba85f7ceb535 *R/urap.proportion.held.R
 ceb10ca2538c95e03fc28bd3169cd23c *R/zzz.R
-7cd4f2f80e64f40396ad3aa3ce491cc0 *README.md
-74c617d64946846e13fd86d9cda8e600 *build/vignette.rds
+591c7e05c28b6e03f29538320fec4330 *README.md
+8aaeebdd81a11b7a62e2b39af86bd061 *build/vignette.rds
 db346224494df0032ff1e71a92a2ef44 *data/cs_pus.rda
 e134aa1829cbd13e0ea45b839fbfd7c4 *data/cs_space.rda
 215e626d91448a36e39ac2f5c26c95cc *data/cs_spp.rda
@@ -40,7 +40,7 @@ cdea522834f98463819f21bfe5a729a7 *data/sim_rs.rda
 6c2cb73740c2b620aecd456dda2b4d79 *data/sim_ru.rda
 f1bd823708bbf2a21e5a73106eda51f5 *inst/CITATION
 df30f32e4999eef465494182c6438ce3 *inst/doc/raptr.Rmd
-47300c9f7e42effedb83b229ed74518c *inst/doc/raptr.html
+69cefc417cba3aec68416649346a994c *inst/doc/raptr.html
 7d6a0918a4faf6e8372d1d6b0ea4f68e *man/AttributeSpace-class.Rd
 e87160ac158d4a342d3357412daffb8c *man/AttributeSpace.Rd
 22275f8cf580a8e7182e2bdef2ef8a6b *man/AttributeSpaces-class.Rd
@@ -114,7 +114,6 @@ dc4f70ea5865509652860cd8cc750e40 *man/space.target.Rd
 6e936fbb85a0834fdf3da63c0478bac3 *man/summary.Rd
 0893d8057654e49621a45f5542df8a1c *man/update.Rd
 479002a47f0f894a0b032e75b1ae3b4b *man/urap.proportion.held.Rd
-d4d49f6f0de1cef44a9c2d8d82c714d3 *src/Makevars
 b6d0b478a3c4ae5719ed80b3bf3e63fe *src/RcppExports.cpp
 1d176eb26845c05f00071a68612150db *src/dump_object.cpp
 6eeffc1e3d06a12dd5135a928d1c25d6 *src/functions.cpp
