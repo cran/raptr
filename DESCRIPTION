@@ -1,7 +1,7 @@
 Package: raptr
 Type: Package
 Title: Representative and Adequate Prioritization Toolkit in R
-Version: 0.1.4
+Version: 0.1.5
 Authors@R: c(person(c("Jeffrey", "O"), "Hanson",
     email="jeffrey.hanson@uqconnect.edu.au", role = c("aut", "cre")),
     person(c("Jonathan", "R"), "Rhodes", role = c("aut")),
@@ -45,10 +45,10 @@ Collate: 'dependencies.R' 'RcppExports.R' 'raptr-internal.R'
 RoxygenNote: 6.1.1
 NeedsCompilation: yes
 Maintainer: Jeffrey O Hanson <jeffrey.hanson@uqconnect.edu.au>
-Packaged: 2019-04-11 07:22:24 UTC; jeff
+Packaged: 2020-02-09 22:54:53 UTC; jeff
 Author: Jeffrey O Hanson [aut, cre],
   Jonathan R Rhodes [aut],
   Hugh P Possingham [aut],
   Richard A Fuller [aut]
 Repository: CRAN
-Date/Publication: 2019-04-11 09:02:48 UTC
+Date/Publication: 2020-02-12 11:00:02 UTC
