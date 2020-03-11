@@ -1,7 +1,7 @@
 Package: raptr
 Type: Package
 Title: Representative and Adequate Prioritization Toolkit in R
-Version: 0.1.5
+Version: 0.1.6
 Authors@R: c(person(c("Jeffrey", "O"), "Hanson",
     email="jeffrey.hanson@uqconnect.edu.au", role = c("aut", "cre")),
     person(c("Jonathan", "R"), "Rhodes", role = c("aut")),
@@ -22,7 +22,7 @@ Imports: utils, methods, assertthat, Matrix, boot, grDevices,
         RgoogleMaps, RandomFields, RColorBrewer, plyr, parallel,
         doParallel, rgeos, rgdal, hypervolume(>= 2.0.7), ks, gdalUtils,
         mvtnorm, ggplot2
-Depends: R(>= 3.1.0), sp, raster
+Depends: R(>= 3.5.0), sp, raster
 LinkingTo: Rcpp, RcppEigen, BH
 LazyData: true
 License: GPL-3
@@ -44,11 +44,11 @@ Collate: 'dependencies.R' 'RcppExports.R' 'raptr-internal.R'
         'sim.species.R' 'urap.proportion.held.R' 'zzz.R'
 RoxygenNote: 6.1.1
 NeedsCompilation: yes
-Maintainer: Jeffrey O Hanson <jeffrey.hanson@uqconnect.edu.au>
-Packaged: 2020-02-09 22:54:53 UTC; jeff
+Packaged: 2020-03-11 00:43:05 UTC; jeff
 Author: Jeffrey O Hanson [aut, cre],
   Jonathan R Rhodes [aut],
   Hugh P Possingham [aut],
   Richard A Fuller [aut]
+Maintainer: Jeffrey O Hanson <jeffrey.hanson@uqconnect.edu.au>
 Repository: CRAN
-Date/Publication: 2020-02-12 11:00:02 UTC
+Date/Publication: 2020-03-11 11:20:07 UTC

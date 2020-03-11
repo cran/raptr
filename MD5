@@ -1,6 +1,6 @@
-58f6c952f849f34d9d6bafb02e0337d1 *DESCRIPTION
+a76460fc10dd5b34c1033c9c485c3029 *DESCRIPTION
 ce5c59cde104af5eb3ae6c1e907bc6f9 *NAMESPACE
-b385b9a2fe97e8e42588b51c22a1de2c *NEWS.md
+0c46b1651dbc02912beeecf7e827096b *NEWS.md
 cd59249b384a0be744e08aff0f8f2fd8 *R/AttributeSpace.R
 298fb97dbcb627038f3b202591225215 *R/AttributeSpaces.R
 0cb38e13be9eaf36a150649254f31cc3 *R/DemandPoints.R
@@ -9,7 +9,7 @@ ed6c8ac3d81f875fe332b00c470f2013 *R/ManualOpts.R
 56776d6075d6eeed78d85804ab4666d8 *R/PlanningUnitPoints.R
 bf0bd329b977867b3a6526723ca48e9a *R/RapData.R
 b2e281f05dac52f5cd480e140bb07ca6 *R/RapReliableOpts.R
-c918d31bb4f9e6e3f34f55736ade9119 *R/RapResults.R
+67c2213961c637cfc870431bf5daaf0f *R/RapResults.R
 0e21bc7c57efde542ea75245a61b55c5 *R/RapSolved.R
 2845cc4d3b90ca56ecd0890d2f90e2e0 *R/RapUnreliableOpts.R
 0f1f35d57b2f9440851869e5c584c1e0 *R/RapUnsolved.R
@@ -17,13 +17,13 @@ c918d31bb4f9e6e3f34f55736ade9119 *R/RapResults.R
 92a94d4ed5308ea66319e3f220a1eaf1 *R/SpatialPolygons2PolySet.R
 cd61f58fcce54533c846a41a023cf4e8 *R/calcBoundaryData.R
 80742840b1209ec8825c62638e6e8482 *R/calcSpeciesAverageInPus.R
-144fc8b0448d30c88830689a480acaae *R/data.R
+b7075feae1b855506c3b6df00a18527d *R/data.R
 3bb8e860c664c7bd0e4a0190c654133c *R/dependencies.R
 2f30ee70aae87b5b1c7846b66bd781ab *R/generics.R
 5d03b671e2dbc1839146567fc59564db *R/misc.R
 58061475d6560db4fb578de6816f1af4 *R/rap.R
 a9586bcccc2b5ab1774a2904adf4e9bb *R/raptr-internal.R
-5eadffe6a31bfe5a04957b7066d45bca *R/raptr.R
+f7acd0318db352308b4d176640906b2a *R/raptr.R
 c15f060371810190233526c3168b12f5 *R/rrap.proportion.held.R
 15b2dd040c73556d1047d3115db5b6d2 *R/sim.pus.R
 4c6a25c3cbf9ea8d9be7eb6810256668 *R/sim.space.R
@@ -39,8 +39,8 @@ e134aa1829cbd13e0ea45b839fbfd7c4 *data/cs_space.rda
 cdea522834f98463819f21bfe5a729a7 *data/sim_rs.rda
 6c2cb73740c2b620aecd456dda2b4d79 *data/sim_ru.rda
 f1bd823708bbf2a21e5a73106eda51f5 *inst/CITATION
-06e2f9c83f952b42c1c090eed2f90abd *inst/doc/raptr.Rmd
-55d2b176ac693539dc27cfbdf4269e59 *inst/doc/raptr.html
+d7d22f2d29f07b2979538897c9a5489a *inst/doc/raptr.Rmd
+608c840aa779728929e06a7c656cc8ef *inst/doc/raptr.html
 7d6a0918a4faf6e8372d1d6b0ea4f68e *man/AttributeSpace-class.Rd
 e87160ac158d4a342d3357412daffb8c *man/AttributeSpace.Rd
 22275f8cf580a8e7182e2bdef2ef8a6b *man/AttributeSpaces-class.Rd
@@ -77,7 +77,7 @@ b00c12dc7f400dc4774ea3908cde33e3 *man/blank.raster.Rd
 66b6530936235826692f7ef960d4ce37 *man/cache.Rd
 b98ba23d3256596c47a229d826ac5d87 *man/calcBoundaryData.Rd
 e5113e6ef0cc9ab7170a23168112d478 *man/calcSpeciesAverageInPus.Rd
-9947fb7faf05ece6388e9c4c3341eb50 *man/casestudy_data.Rd
+a367c9892bdb9fd2688bfb076a7d5602 *man/casestudy_data.Rd
 ebd30a8f15e6a1b85276c93c6a84c0df *man/dp.subset.Rd
 c7d277753ee9e1ca5ab9ef398c36f637 *man/is.GurobiInstalled.Rd
 e63494c8e1c47fbea30e63c7f3cb1c04 *man/is.cached.Rd
@@ -94,7 +94,7 @@ c5654b481688bed24841c25b5d9c9479 *man/names.Rd
 fba9551ec579d3ae3b86fc4002b74dca *man/pu.subset.Rd
 bd1770e70352e0a9e04c272505f3daa3 *man/randomPoints.Rd
 c3683d0bb2a22d1ac14e22b3b63fb1ce *man/rap.Rd
-929d662db0d003393e8dbd823eee32ca *man/raptr.Rd
+b39138fab4ac8ec07124afd5d85c701b *man/raptr.Rd
 5823934b1553c661a4e9b887430df464 *man/rasterizeGDAL.Rd
 0954ad385f89561b047c9da606cb4e95 *man/read.RapResults.Rd
 6b78f8cd88d035374e7c51f8933f629c *man/rrap.proportion.held.Rd
@@ -143,7 +143,7 @@ b8a02f51df9b49db61736dae166a0484 *tests/testthat/test-06-PlanningUnitPoints.R
 93e8bd880d4270bb55bbf988786a5fa8 *tests/testthat/test-08-AttributeSpace.R
 679d314d3db157b63d6cbf59a161125a *tests/testthat/test-09-AttributeSpaces.R
 62d16d67b13c2fb1460c85c704d8cf62 *tests/testthat/test-10-RapData.R
-60d3d9bb1f24e0753cf246635cb565b3 *tests/testthat/test-11-RapUnsolved.R
+6f16cfa89e0ee1e9fd20a114eecc1024 *tests/testthat/test-11-RapUnsolved.R
 a0c56e3ea2ec700624784a8fe454fe4f *tests/testthat/test-12-RapSolved.R
 79e31c5d92ca67c4ad10dff367729b05 *tests/testthat/test-13-rap.R
-06e2f9c83f952b42c1c090eed2f90abd *vignettes/raptr.Rmd
+d7d22f2d29f07b2979538897c9a5489a *vignettes/raptr.Rmd
