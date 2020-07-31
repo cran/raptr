@@ -8,22 +8,26 @@
 \usage{
 calcSpeciesAverageInPus(x, ...)
 
-\method{calcSpeciesAverageInPus}{SpatialPolygons}(x, y,
-  ids = seq_len(nlayers(y)), ncores = 1, gdal = FALSE, ...)
+\method{calcSpeciesAverageInPus}{SpatialPolygons}(x, y, ids = seq_len(nlayers(y)), ncores = 1, ...)
 
-\method{calcSpeciesAverageInPus}{SpatialPolygonsDataFrame}(x, y,
-  ids = seq_len(nlayers(y)), ncores = 1, gdal = FALSE,
-  field = NULL, ...)
+\method{calcSpeciesAverageInPus}{SpatialPolygonsDataFrame}(
+  x,
+  y,
+  ids = seq_len(nlayers(y)),
+  ncores = 1,
+  field = NULL,
+  ...
+)
 }
 \arguments{
-\item{x}{\code{\link[sp]{SpatialPolygons}} or
-\code{\link[sp]{SpatialPolygonsDataFrame}} object.}
+\item{x}{\code{\link[sp:SpatialPolygons]{sp::SpatialPolygons()}} or
+\code{\link[sp:SpatialPolygons]{sp::SpatialPolygonsDataFrame()}} object.}
 
 \item{...}{not used.}
 
-\item{y}{\code{\link[raster]{RasterLayer-class}},
-\code{\link[raster]{RasterStack-class}}, or
-\code{\link[raster]{RasterBrick-class}} object.}
+\item{y}{\code{\link[raster:raster]{raster::raster()}},
+\code{\link[raster:stack]{raster::stack()}}, or
+\code{\link[raster:brick]{raster::brick()}} object.}
 
 \item{ids}{\code{integer} vector of ids. Defaults to indices of layers in
 argument to \code{y}.}
@@ -31,21 +35,17 @@ argument to \code{y}.}
 \item{ncores}{\code{integer} number of cores to use for processing. Defaults
 to 1.}
 
-\item{gdal}{\code{logical} Should raster processing be performed using GDAL
-libraries? Defaults to \code{FALSE}.}
-
 \item{field}{\code{integer} index or \code{character} name of column with
 planning unit ids. Valid only when \code{x} is a
-\code{\link[sp]{SpatialPolygonsDataFrame}} object. Default behavior is to
+\code{\link[sp:SpatialPolygons]{sp::SpatialPolygonsDataFrame()}} object. Default behavior is to
 treat each polygon as a different planning unit.}
 }
 \value{
-\code{\link[base]{data.frame}} with sum of raster values in each
-  polygon.
+\code{\link[base:data.frame]{base::data.frame()}} with sum of raster values in each
+polygon.
 }
 \description{
 This function calculates the average of species values in each planning unit.
-Be aware that using polygons with overlaps will result in inaccuracies.
 By default all polygons will be treated as having separate ids.
 }
 \examples{
@@ -60,8 +60,4 @@ puvspr1.dat <- calcSpeciesAverageInPus(sim_pus, sim_spp[[1]])
 # calculate average for multiple species
 puvspr2.dat <- calcSpeciesAverageInPus(sim_pus, stack(sim_spp))
 
-}
-\seealso{
-\code{\link{is.gdalInstalled}}, \url{http://www.gdal.org/},
-  \url{http://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries}.
 }

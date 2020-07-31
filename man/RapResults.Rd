@@ -4,35 +4,42 @@
 \alias{RapResults}
 \title{Create RapResults object}
 \usage{
-RapResults(summary, selections, amount.held, space.held, logging.file,
-  .cache = new.env())
+RapResults(
+  summary,
+  selections,
+  amount.held,
+  space.held,
+  logging.file,
+  .cache = new.env()
+)
 }
 \arguments{
-\item{summary}{\code{\link[base]{data.frame}} with summary information on
+\item{summary}{\code{\link[base:data.frame]{base::data.frame()}} with summary information on
 solutions. See details below for more information.}
 
-\item{selections}{\code{\link[base]{matrix}} with binary selections. The
+\item{selections}{\code{\link[base:matrix]{base::matrix()}} with binary selections. The
 cell \eqn{x_{ij}} denotes if planning unit \eqn{j} is selected in the
 \eqn{i}'th solution.}
 
-\item{amount.held}{\code{\link[base]{matrix}} with the amount held for each
+\item{amount.held}{\code{\link[base:matrix]{base::matrix()}} with the amount held for each
 species in each solution.}
 
-\item{space.held}{\code{\link[base]{matrix}} with the proportion of
+\item{space.held}{\code{\link[base:matrix]{base::matrix()}} with the proportion of
 attribute space sampled for each species in each solution.}
 
 \item{logging.file}{\code{character} Gurobi log files.}
 
-\item{.cache}{\code{\link[base]{environment}} used to cache calculations.}
+\item{.cache}{\code{\link[base:environment]{base::environment()}} used to cache calculations.}
 }
 \value{
 \code{RapResults} object
 }
 \description{
-This function creates a new \code{\link{RapResults}} object.
+This function creates a new \code{\link[=RapResults]{RapResults()}} object.
 }
 \details{
-The \code{summary} table follows Marxan conventions (summary.dat in \url{http://marxan.net/downloads/uq_marxan_web_2/module5.html}). The columns
+The \code{summary} table follows Marxan conventions (
+\url{https://marxansolutions.org/}). The columns
 are:
 \describe{
 \item{Run_Number}{The index of each solution in the object.}
@@ -59,8 +66,8 @@ efficient.}
 }
 \note{
 slot \code{best} is automatically determined based on data in
-  \code{summary}.
+\code{summary}.
 }
 \seealso{
-\code{\link{RapResults-class}} \code{\link{read.RapResults}}.
+\linkS4class{RapResults} \code{\link[=read.RapResults]{read.RapResults()}}.
 }

@@ -7,13 +7,12 @@
 \alias{cs_spp}
 \alias{cs_space}
 \title{Case-study dataset for a conservation planning exercise}
-\format{cs_pus: \code{\link[sp]{SpatialPolygonsDataFrame}}, cs_spp: \code{\link[raster]{RasterLayer-class}}, cs_space: \code{\link[raster]{RasterStack-class}}.}
-\usage{
-cs_pus
-
-cs_space
-
-cs_spp
+\format{
+\describe{
+\item{cs_pus}{\code{\link[sp:SpatialPolygons]{sp::SpatialPolygonsDataFrame()}} object.}
+\item{cs_spp}{\code{\link[raster:raster]{raster::raster()}} object.}
+\item{cs_space}{\code{\link[raster:stack]{raster::stack()}} object.}
+}
 }
 \description{
 This dataset contains data to generate example prioritizations for the
@@ -22,7 +21,7 @@ pale-headed Rosella (\emph{Platycercus adscitus}) in Queensland, Australia.
 \details{
 The objects in the dataset are listed below.
 \describe{
-\item{cs_pus}{\code{\link[sp]{SpatialPolygonsDataFrame}} planning units.
+\item{cs_pus}{\code{\link[sp:SpatialPolygons]{sp::SpatialPolygonsDataFrame()}} planning units.
 The units were generated as \eqn{30km^2} squares across the
 species' range, and then clipped to the Queensland, Australia
 (using data obtained from the Australia Bureau of Statistics; \url{http://www.abs.gov.au/ausstats/abs@.nsf/mf/1259.0.30.001?OpenDocument}).
@@ -34,11 +33,11 @@ the amount of land encompassed by each unit, the \code{cost}
 field is set to 1 for all units, and the \code{status} field
 indicates if 50\% or more of the units' extent is covered by
 protected areas.}
-\item{cs_spp}{\code{\link[raster]{RasterLayer-class}} probability
+\item{cs_spp}{\code{\link[raster:raster]{raster::raster()}} probability
 distribution map for the \emph{P. adscitus} clipped to
 Queensland, Australia. This map was derived from records
 obtained from The Atlas of Living Australia (\url{http://ala.org.au/})}.
-\item{cs_space}{\code{\link[raster]{stack}} describing broad-scale climate
+\item{cs_space}{\code{\link[raster:stack]{raster::stack()}} describing broad-scale climate
 variation across Queensland
 (obtained from \url{http://worldclim.org/},
 and resampled to \eqn{10km^2} resolution).}
@@ -49,7 +48,7 @@ and resampled to \eqn{10km^2} resolution).}
 data(cs_pus, cs_spp, cs_space)
 
 # plot data
-\donttest{
+\dontrun{
 plot(cs_pus)
 plot(cs_spp)
 plot(cs_space)

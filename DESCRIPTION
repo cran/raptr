@@ -1,7 +1,7 @@
 Package: raptr
 Type: Package
 Title: Representative and Adequate Prioritization Toolkit in R
-Version: 0.1.6
+Version: 0.1.7
 Authors@R: c(person(c("Jeffrey", "O"), "Hanson",
     email="jeffrey.hanson@uqconnect.edu.au", role = c("aut", "cre")),
     person(c("Jonathan", "R"), "Rhodes", role = c("aut")),
@@ -20,18 +20,20 @@ Description: Biodiversity is in crisis. The overarching aim of conservation
 Imports: utils, methods, assertthat, Matrix, boot, grDevices,
         PBSmapping, graphics, stats, scales, shape, adehabitatHR,
         RgoogleMaps, RandomFields, RColorBrewer, plyr, parallel,
-        doParallel, rgeos, rgdal, hypervolume(>= 2.0.7), ks, gdalUtils,
-        mvtnorm, ggplot2
+        doParallel, rgeos, rgdal, hypervolume(>= 2.0.7), ks, mvtnorm,
+        ggplot2
 Depends: R(>= 3.5.0), sp, raster
 LinkingTo: Rcpp, RcppEigen, BH
 LazyData: true
 License: GPL-3
+Encoding: UTF-8
+Language: en-US
 URL: https://jeffrey-hanson.com/raptr,
         https://github.com/jeffreyhanson/raptr
 BugReports: https://github.com/jeffreyhanson/raptr/issues
 VignetteBuilder: knitr
-Suggests: knitr, roxygen2, dplyr, vegan, gurobi, gridExtra, rgl,
-        testthat
+Suggests: knitr, roxygen2, rmarkdown, dplyr, vegan, gurobi, gridExtra,
+        rgl, testthat
 SystemRequirements: C++11
 Collate: 'dependencies.R' 'RcppExports.R' 'raptr-internal.R'
         'generics.R' 'DemandPoints.R' 'misc.R' 'PlanningUnitPoints.R'
@@ -42,13 +44,13 @@ Collate: 'dependencies.R' 'RcppExports.R' 'raptr-internal.R'
         'SpatialPolygons2PolySet.R' 'data.R' 'rap.R' 'raptr.R'
         'rrap.proportion.held.R' 'sim.pus.R' 'sim.space.R'
         'sim.species.R' 'urap.proportion.held.R' 'zzz.R'
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1
 NeedsCompilation: yes
-Packaged: 2020-03-11 00:43:05 UTC; jeff
+Packaged: 2020-07-27 02:06:42 UTC; jeff
 Author: Jeffrey O Hanson [aut, cre],
   Jonathan R Rhodes [aut],
   Hugh P Possingham [aut],
   Richard A Fuller [aut]
 Maintainer: Jeffrey O Hanson <jeffrey.hanson@uqconnect.edu.au>
 Repository: CRAN
-Date/Publication: 2020-03-11 11:20:07 UTC
+Date/Publication: 2020-07-31 08:20:03 UTC
