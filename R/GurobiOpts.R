@@ -40,6 +40,10 @@ NULL
 #'   software suite (see <https://www.gurobi.com/documentation/8.0/refman/poolsearchmode.html#parameter:PoolSearchMode>).
 #'   Defaults to `"benders.cuts"`.
 #'
+#' @slot NumericFocus `integer` how much effort should Gurobi focus on
+#'   addressing numerical issues? Defaults to `0L` such that minimal effort
+#'   is spent to reduce run time.
+#'
 #' @seealso [GurobiOpts()].
 #'
 #' @name GurobiOpts-class
@@ -48,25 +52,40 @@ NULL
 #'
 #' @exportClass GurobiOpts
 methods::setClass("GurobiOpts",
-  methods::representation(Threads = "integer", MIPGap = "numeric",
-                          Method = "integer", Presolve = "integer",
-                          TimeLimit = "integer", NumberSolutions = "integer",
-                          MultipleSolutionsMethod = "character"),
-  prototype = list(Threads = 1L, MIPGap = 0.1, Method = 0L, Presolve = 2L,
-                   TimeLimit = NA_integer_, NumberSolutions = 1L,
-                   MultipleSolutionsMethod = "benders.cuts"),
+  methods::representation(
+    Threads = "integer",
+    MIPGap = "numeric",
+    Method = "integer",
+    Presolve = "integer",
+    TimeLimit = "integer",
+    NumberSolutions = "integer",
+    MultipleSolutionsMethod = "character",
+    NumericFocus = "integer"
+  ),
+  prototype = list(
+    Threads = 1L,
+    MIPGap = 0.1,
+    Method = 0L,
+    Presolve = 2L,
+    TimeLimit = NA_integer_,
+    NumberSolutions = 1L,
+    MultipleSolutionsMethod = "benders.cuts",
+    NumericFocus = 0L
+  ),
   contains = "SolverOpts",
   validity = function(object) {
     # NumberSolutions
-    assertthat::assert_that(assertthat::is.count(object@NumberSolutions),
-                            is.finite(object@NumberSolutions))
+    assertthat::assert_that(
+      assertthat::is.count(object@NumberSolutions),
+      is.finite(object@NumberSolutions)
+    )
     # TimeLimit
     assertthat::assert_that(is.integer(object@NumberSolutions))
     # Threads
-    assertthat::assert_that(assertthat::is.count(object@Threads),
-                            is.finite(object@Threads),
-                            object@Threads <= parallel::detectCores(logical =
-                                                                      TRUE))
+    assertthat::assert_that(
+      assertthat::is.count(object@Threads),
+      assertthat::noNA(object@Threads)
+    )
     # MultipleSolutionsMethod
     assertthat::assert_that(
       assertthat::is.string(object@MultipleSolutionsMethod),
@@ -78,6 +97,12 @@ methods::setClass("GurobiOpts",
                             is.finite(object@Presolve),
                             is.integer(object@Presolve),
                             object@Presolve <= 2, object@Presolve >= -1)
+    # NumericFocus
+    assertthat::assert_that(assertthat::is.scalar(object@NumericFocus),
+                            assertthat::noNA(object@NumericFocus),
+                            is.integer(object@NumericFocus),
+                            object@NumericFocus >= 0L,
+                            object@NumericFocus <= 3L)
     # Method
     assertthat::assert_that(assertthat::is.scalar(object@Method),
                             is.finite(object@Method),
@@ -129,26 +154,33 @@ methods::setClass("GurobiOpts",
 #'   software suite (see <https://www.gurobi.com/documentation/8.0/refman/poolsearchmode.html#parameter:PoolSearchMode>).
 #'   Defaults to `"benders.cuts"`.
 #'
+#' @param NumericFocus `integer` how much effort should Gurobi focus on
+#'   addressing numerical issues? Defaults to `0L` such that minimal effort
+#'   is spent to reduce run time.
+#'
 #' @return `GurobiOpts` object
 #'
 #' @seealso [GurobiOpts-class].
 #'
 #' @examples
+#' \dontrun{
 #' # create GurobiOpts object using default parameters
 #' GurobiOpts(Threads = 1L, MIPGap = 0.1, Method = 0L, Presolve=2L,
-#'            TimeLimit = NA_integer_, NumberSolutions = 1L)
-#'
+#'            TimeLimit = NA_integer_, NumberSolutions = 1L, NumericFocus = 0L)
+#' }
 #' @export
 GurobiOpts <- function(Threads = 1L, MIPGap = 0.1, Method = 0L, Presolve = 2L,
                        TimeLimit = NA_integer_, NumberSolutions = 1L,
                        MultipleSolutionsMethod = c("benders.cuts",
                                                    "solution.pool.0",
                                                    "solution.pool.1",
-                                                   "solution.pool.2")[1]) {
+                                                   "solution.pool.2")[1],
+                       NumericFocus = 0L) {
   go <- methods::new("GurobiOpts", Threads = Threads, MIPGap = MIPGap,
                      Method = Method, Presolve = Presolve,
                      TimeLimit = TimeLimit, NumberSolutions = NumberSolutions,
-                     MultipleSolutionsMethod = MultipleSolutionsMethod)
+                     MultipleSolutionsMethod = MultipleSolutionsMethod,
+                     NumericFocus = NumericFocus)
   methods::validObject(go, test = FALSE)
   return(go)
 }
@@ -172,6 +204,7 @@ print.GurobiOpts <- function(x, ..., header=TRUE) {
   message("  TimeLimit: ", x@TimeLimit)
   message("  NumberSolutions: ", x@NumberSolutions)
   message("  MultipleSolutionsMethod: ", x@MultipleSolutionsMethod)
+  message("  NumericFocus: ", x@NumericFocus)
 }
 
 #' @rdname show
@@ -191,7 +224,7 @@ methods::setMethod("show", "GurobiOpts",
 #' @export
 as.list.GurobiOpts <- function(x, ...) {
   y <- list(Threads = x@Threads, MIPGap = x@MIPGap, Presolve = x@Presolve,
-            Method = x@Method)
+            Method = x@Method, NumericFocus = x@NumericFocus)
   if (is.finite(x@TimeLimit))
     y$TimeLimit <- x@TimeLimit
   return(y)
@@ -205,7 +238,8 @@ as.list.GurobiOpts <- function(x, ...) {
 update.GurobiOpts <- function(object, Threads = NULL, MIPGap = NULL,
                               Method = NULL, Presolve = NULL, TimeLimit = NULL,
                               NumberSolutions = NULL,
-                              MultipleSolutionsMethod = NULL, ...) {
+                              MultipleSolutionsMethod = NULL,
+                              NumericFocus = NULL, ...) {
   # update arguments
   if (!is.null(Threads))
     object@Threads <- Threads
@@ -221,6 +255,8 @@ update.GurobiOpts <- function(object, Threads = NULL, MIPGap = NULL,
     object@NumberSolutions <- NumberSolutions
   if (!is.null(MultipleSolutionsMethod))
     object@MultipleSolutionsMethod <- MultipleSolutionsMethod
+  if (!is.null(NumericFocus))
+    object@NumericFocus <- NumericFocus
   # check object for validity
   methods::validObject(object, test = FALSE)
   # return object

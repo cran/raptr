@@ -20,6 +20,7 @@
   TimeLimit = NULL,
   NumberSolutions = NULL,
   MultipleSolutionsMethod = NULL,
+  NumericFocus = NULL,
   ...
 )
 
@@ -78,6 +79,10 @@ search pool methods correspond to the parameters used by the Gurobi
 software suite (see \url{https://www.gurobi.com/documentation/8.0/refman/poolsearchmode.html#parameter:PoolSearchMode}).
 Defaults to \code{"benders.cuts"}.}
 
+\item{NumericFocus}{\code{integer} how much effort should Gurobi focus on
+addressing numerical issues? Defaults to \code{0L} such that minimal effort
+is spent to reduce run time.}
+
 \item{...}{parameters passed to \code{\link[=update.RapReliableOpts]{update.RapReliableOpts()}},
 \code{\link[=update.RapUnreliableOpts]{update.RapUnreliableOpts()}}, or \code{\link[=update.RapData]{update.RapData()}}.}
 
@@ -130,6 +135,7 @@ This function updates parameters or data stored in an existing
 \code{\link[=RapUnsolved]{RapUnsolved()}}, or \code{\link[=RapSolved]{RapSolved()}} object.
 }
 \examples{
+\dontrun{
 # load data
 data(sim_ru, sim_rs)
 
@@ -169,6 +175,7 @@ y <- update(x, space.target = c(0.4, 0.6, 0.9), BLM = 100, Presolve = 1L,
             solve = FALSE)
 print(x@opts@BLM); print(amount.target(x))
 print(y@opts@BLM); print(space.target(y))
+}
 }
 \seealso{
 \linkS4class{GurobiOpts},
